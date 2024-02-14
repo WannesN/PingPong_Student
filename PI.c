@@ -51,6 +51,7 @@ float PI_GetKi(void) {
 
 void PI(void) {
     sensorHeight = (uint8_t) getHoogteSensor(); //resultaat van ADC (8 bit )
+    setpoint = (uint8_t) getPotentiometer();
     
     //Hier dient jullie code toegevoegd te worden
     // error = ...
