@@ -53,10 +53,14 @@ void PI(void) {
     sensorHeight = (uint8_t) getHoogteSensor(); //resultaat van ADC (8 bit )
     setpoint = (uint8_t) getPotentiometer();
     
-    //Hier dient jullie code toegevoegd te worden
-    // error = ...
-    // dutycycle = ...
+    error = setpoint - sensorHeight;
     
+    integral = integral + ki*0.0033*error;
+    dutycycle = (int) integral + kp*error;
+    
+    if (dutycycle > 1023) {
+        dutycycle = 1023;
+    }
     PWM5_LoadDutyValue(dutycycle); // output pwm signaal voor hoogte 10 bit (van 0 tot 0x3FF)
 }
 
