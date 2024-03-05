@@ -44,7 +44,7 @@ void main(void) {
     
     
     while (1) {
-        //uartHandler();
+        uartHandler();
         
         // PI moet op een vaste frequentie (elke 33ms) lopen voor de integrator
         
